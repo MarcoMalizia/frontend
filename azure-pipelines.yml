@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: LinuxSelfHosted
+  name: LinuxSelfHosted
 
 steps:
 
@@ -25,3 +25,18 @@ steps:
     mavenVersionOption: 'Path'
     mavenDirectory: '/opt/maven/apache-maven-3.9.6'
     mavenSetM2Home: true
+
+- task: AzureContainerApps@1
+  inputs:
+    appSourcePath: '$(apppath)'
+    azureSubscription: '$(azsub)'
+    acrName: '$(registryname)'
+    acrUsername: '$(registryname)'
+    acrPassword: '$(registrypass)'
+    containerAppName: '$(containername)'
+    imageToBuild: 'registrymarco.azurecr.io/frontend:latest'
+    resourceGroup: 'platformRG'
+    dockerfilePath: ''
+    containerAppEnvironment: '$(containerenv)'
+    targetPort: '8082'
+    ingress: 'external'
