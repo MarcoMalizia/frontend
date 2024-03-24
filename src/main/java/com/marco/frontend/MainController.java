@@ -18,15 +18,15 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Controller
 public class MainController {
      
-    @GetMapping("/login")
+    @GetMapping("/")
     public String showForm(Model model) {
         Data data = new Data();
         model.addAttribute("data", data);
          
-        return "login";
+        return "index";
     }
     
-    @PostMapping("/login")
+    @PostMapping("/")
     public String submitForm(@ModelAttribute("data") Data data) throws URISyntaxException {
         System.out.println(data);
         
