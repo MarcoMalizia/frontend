@@ -40,7 +40,7 @@ public class MainController {
         System.out.println(bodyValues);
 
         String response = client.post()
-            .uri(new URI("http://localhost:8081/api/auth"))
+            .uri(new URI("https://authenticator.happyforest-825d7b85.northeurope.azurecontainerapps.io/api/auth"))
             .header("No_Auth", "")
             .contentType(MediaType.APPLICATION_FORM_URLENCODED)
             .accept(MediaType.APPLICATION_JSON)
