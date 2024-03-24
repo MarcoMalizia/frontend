@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: LinuxSelfHosted
+  name: LinuxSelfHosted
 
 steps:
 
